@@ -8,6 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
+import java.text.DecimalFormat;
+
 public class PlayerDeathListener implements Listener {
 
     private DeathMoneyPlugin plugin;
@@ -31,8 +33,9 @@ public class PlayerDeathListener implements Listener {
 
         eco.withdrawPlayer(player, cost);
         if (config.isString("death-message")) {
-            String message = config.getString("death-message");
-            player.sendMessage(String.format(ChatColor.translateAlternateColorCodes('&', message), cost));
+            String message = ChatColor.translateAlternateColorCodes('&', config.getString("death-message"));
+            String costFormatted = DecimalFormat.getCurrencyInstance().format(cost);
+            player.sendMessage(String.format(message, costFormatted));
         }
     }
 
