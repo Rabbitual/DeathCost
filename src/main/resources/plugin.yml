@@ -2,3 +2,5 @@ name: DeathCompensator
 author: Escad_
 main: com.github.rabbitual.deathmoney.DeathMoneyPlugin
 version: '1.0'
+depend: ['Vault']
+api-version: '1.13'

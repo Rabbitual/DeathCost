@@ -12,6 +12,7 @@ public class DeathMoneyPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         if (!setupEconomy()) {
+            getLogger().severe("Could not detect an economy plugin - disabling plugin..");
             Bukkit.getPluginManager().disablePlugin(this);
         }
 
